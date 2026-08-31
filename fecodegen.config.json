@@ -1,0 +1,5 @@
+{
+  "modelDir": "../docs",
+  "pagesRoot": "src/app/pages",
+  "apiBase": "/api"
+}
