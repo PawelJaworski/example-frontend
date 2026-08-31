@@ -1,5 +1,6 @@
 {
   "modelDir": "../docs",
   "pagesRoot": "src/app/pages",
-  "apiBase": "/api"
+  "apiBase": "/api",
+  "openapiPath": "../insurance-company-service/api/openapi.json"
 }
