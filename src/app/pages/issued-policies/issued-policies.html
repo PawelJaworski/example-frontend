@@ -1,0 +1,26 @@
+<!-- SCAFFOLDED ONCE by frontend-development/scripts/codegen — this file is YOURS. -->
+<section class="issued-policies">
+  <h1>Issued Policies</h1>
+  <!-- Actor: Insurance Agent -->
+
+  @if (store.error(); as message) {
+    <p class="error">{{ message }}</p>
+  }
+
+  <!-- search: issued-policies -->
+  <form (ngSubmit)="store.searchIssuedPolicies(issuedPoliciesSearchCriteria)">
+    <button type="submit" [disabled]="store.pending()">Search</button>
+  </form>
+
+  <!-- read model: issued-policies -->
+  <table>
+    <thead>
+      <tr><th>policy key</th><th>policy number</th><th>policy holder</th><th>policy coverage</th></tr>
+    </thead>
+    <tbody>
+      @for (row of store.issuedPolicies(); track $index) {
+        <tr><td>{{ row.policyKey }}</td><td>{{ row.policyNumber }}</td><td><dl><dt>name</dt><dd>{{ row.policyHolder.name }}</dd><dt>surname</dt><dd>{{ row.policyHolder.surname }}</dd></dl></td><td><dl><dt>coveragePeriod</dt><dd>{{ row.policyCoverage.coveragePeriod }}</dd><dt>riskList</dt><dd><ul>@for (entry of row.policyCoverage.riskList; track $index) {<li>{{ entry }}</li>}</ul></dd></dl></td></tr>
+      }
+    </tbody>
+  </table>
+</section>

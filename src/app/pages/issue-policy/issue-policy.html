@@ -1,0 +1,38 @@
+<!-- SCAFFOLDED ONCE by frontend-development/scripts/codegen — this file is YOURS. -->
+<section class="issue-policy">
+  <h1>Issue Policy</h1>
+  <!-- Actor: Insurance Agent -->
+
+  @if (store.error(); as message) {
+    <p class="error">{{ message }}</p>
+  }
+
+  <!-- command: issue-policy -->
+  <form (ngSubmit)="store.issuePolicy(issuePolicyForm)">
+    <fieldset>
+      <legend>policy holder</legend>
+      <label>
+        name
+        <input name="policyHolder_name" [(ngModel)]="issuePolicyForm.policyHolder.name" />
+      </label>
+      <label>
+        surname
+        <input name="policyHolder_surname" [(ngModel)]="issuePolicyForm.policyHolder.surname" />
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>policy coverage</legend>
+      <label>
+        coveragePeriod
+        <input name="policyCoverage_coveragePeriod" [(ngModel)]="issuePolicyForm.policyCoverage.coveragePeriod" />
+      </label>
+      <fieldset>
+        <legend>riskList</legend>
+        @for (entry of issuePolicyForm.policyCoverage.riskList; track $index) {
+          <input name="policyCoverage_riskList_{{ $index }}" [(ngModel)]="issuePolicyForm.policyCoverage.riskList[$index]" />
+        }
+      </fieldset>
+    </fieldset>
+    <button type="submit" [disabled]="store.pending()">Issue Policy</button>
+  </form>
+</section>
