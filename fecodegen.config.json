@@ -1,5 +1,5 @@
 {
-  "modelDir": "../docs",
+  "modelDir": "../example-backend/docs",
   "pagesRoot": "src/app/pages",
   "apiBase": "/api",
   "openapiPath": "../example-backend/api/openapi.json"
