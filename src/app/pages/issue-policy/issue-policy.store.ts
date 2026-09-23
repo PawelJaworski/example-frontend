@@ -16,7 +16,7 @@ export class IssuePolicyStore {
 
   readonly pending = signal(false);
   readonly error = signal<string | null>(null);
-  readonly issuePolicyResult = signal<string | null>(null);
+  readonly issuePolicyResult = signal<number | null>(null);
 
   async issuePolicy(payload: IssuePolicyPayload): Promise<void> {
     await this.run(async () => {

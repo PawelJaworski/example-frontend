@@ -17,7 +17,7 @@ export interface Policycoverage {
 
 /** Projection of the `issued-policies` read model. */
 export interface IssuedPoliciesView {
-  policyKey: string;
+  policyKey: number;
   policyNumber: string;
   policyHolder: Policyholder;
   policyCoverage: Policycoverage;

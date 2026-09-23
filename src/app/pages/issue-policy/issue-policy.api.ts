@@ -17,7 +17,7 @@ export class IssuePolicyApi {
   private readonly http = inject(HttpClient);
 
   /** `POST` the `issue-policy` command. Resolves to the new aggregate id. */
-  issuePolicy(payload: IssuePolicyPayload): Promise<string> {
-    return firstValueFrom(this.http.post<string>(ISSUE_POLICY_ENDPOINT, payload));
+  issuePolicy(payload: IssuePolicyPayload): Promise<number> {
+    return firstValueFrom(this.http.post<number>(ISSUE_POLICY_ENDPOINT, payload));
   }
 }
